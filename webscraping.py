@@ -16,7 +16,6 @@ headers = "brand,product_name,shipping\n"
 f.write(headers)
 
 for container in containers:
-	#brand = container.a.div.div.a.img["title"]
 	brand_container = container.findAll("a",{"class":"item-brand"})
 	brand = brand_container[0].img["title"]
 	
@@ -26,6 +25,6 @@ for container in containers:
 	shipping_container = container.findAll("li", {"class":"price-ship"})
 	shipping = shipping_container[0].text.strip()
 
-	f.write(brand.replace(",", "|") + "," + product_name.replace(",", "|") + "," + shipping + "\n")
+	f.write(brand + "," + product_name.replace(",", "|") + "," + shipping + "\n")
 
 f.close()
